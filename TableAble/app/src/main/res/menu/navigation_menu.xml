@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+
+        <!-- icon 은 나중에 이미지를 넣을려면 추가해주세요! 아니면 삭제해주셔도 됩니다. -->
+
+        <item
+            android:id="@+id/navigation_main"
+            android:icon="@drawable/main_title_img"
+            android:title="메인"/>
+        <item
+            android:id="@+id/navigation_busy"
+            android:icon="@drawable/main_title_img"
+            android:title="복잡도"/>
+        <item
+            android:id="@+id/navigation_map"
+            android:icon="@drawable/main_title_img"
+            android:title="지도"/>
+        <item
+            android:id="@+id/navigation_seat"
+            android:icon="@drawable/main_title_img"
+            android:title="여석"/>
+        <item
+            android:id="@+id/navigation_later_busy"
+            android:icon="@drawable/main_title_img"
+            android:title="이후 복잡도"/>
+        <item
+            android:id="@+id/navigation_setting"
+            android:icon="@drawable/main_title_img"
+            android:title="설정"/>
+
+    </group>
+</menu>
