@@ -51,7 +51,7 @@
         app:layout_constraintTop_toBottomOf="@+id/pplrty_temp_img" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/pplrty_recyclerView"
+        android:id="@+id/density_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
@@ -81,7 +81,7 @@
         android:id="@+id/sort"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/pplrty_recyclerView"
+        app:layout_constraintBottom_toTopOf="@+id/density_recycler_view"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="거리 순"
         android:textColor="#000000"
@@ -93,7 +93,7 @@
         android:layout_width="30dp"
         android:layout_height="26dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/pplrty_recyclerView"
+        app:layout_constraintBottom_toTopOf="@+id/density_recycler_view"
         app:layout_constraintEnd_toStartOf="@+id/sort"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         android:src="@drawable/filter"/>
