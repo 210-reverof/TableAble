@@ -43,26 +43,32 @@ public class DensityRecyclerAdapter extends RecyclerView.Adapter<DensityRecycler
         Drawable drawable = holder.densityImg.getResources().getDrawable(R.drawable.density_img_0);
 
         if (getDensity >= 0 && getDensity < 20) {
+            drawable = holder.densityImg.getResources().getDrawable(R.drawable.density_img_0);
             holder.density.setText("여유");
             holder.densityImg.setImageDrawable(drawable);
         }
         else if (getDensity >= 20 && getDensity < 40) {
+            drawable = holder.densityImg.getResources().getDrawable(R.drawable.density_img_1);
             holder.density.setText("여유");
-            holder.densityImg.getResources().getDrawable(R.drawable.density_img_1);
+            holder.densityImg.setImageDrawable(drawable);
         }
         else if ((getDensity >= 40 && getDensity < 60)) {
+            drawable = holder.densityImg.getResources().getDrawable(R.drawable.density_img_2);
             holder.density.setText("보통");
-            holder.densityImg.getResources().getDrawable(R.drawable.density_img_2);
+            holder.densityImg.setImageDrawable(drawable);
         }
         else if (getDensity >= 60 && getDensity < 80) {
+            drawable = holder.densityImg.getResources().getDrawable(R.drawable.density_img_3);
             holder.density.setText("혼잡");
-            holder.densityImg.getResources().getDrawable(R.drawable.density_img_3);
+            holder.densityImg.setImageDrawable(drawable);
         }
         else{
+            drawable = holder.densityImg.getResources().getDrawable(R.drawable.density_img_4);
             holder.density.setText("혼잡");
-            holder.densityImg.getResources().getDrawable(R.drawable.density_img_4);
+            holder.densityImg.setImageDrawable(drawable);
         }
-        holder.distance.setText(String.valueOf(list.get(position).getDistance()));
+        // 현재 위치, 가게 위도경도로 직선 거리 구해서 홀더에 넣기
+        //holder.distance.setText(String.valueOf(list.get(position).getLatitude()));
     }
 
     @Override

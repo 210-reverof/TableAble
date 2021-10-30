@@ -33,9 +33,11 @@ public class DensityActivity extends AppCompatActivity {
     }
 
     private void insertList(){
-        getList.add(new Density("신전떡볶이",30.0, 60));
-        getList.add(new Density("엽떡!",30.0, 100));
-        getList.add(new Density("빨봉!",30.0, 30));
-        getList.add(new Density("꼴두바우",30.0, 0));
+        getList.add(new Density("신전떡볶이",30.0, 60.0, 40));
+        getList.add(new Density("엽떡!",30.0, 100.0,30));
+        getList.add(new Density("빨봉!",30.0, 30.0,70));
+        getList.add(new Density("꼴두바우",30.0, 0.0, 2));
+        getList.add(new Density("궁중화로",30.0, 0.0, 34));
+        getList.add(new Density("진룽 마라탕",30.0, 0.0, 56));
     }
 }
