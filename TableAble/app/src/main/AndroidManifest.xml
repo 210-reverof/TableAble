@@ -17,6 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".density.DensityActivity"/>
+        <activity android:name=".prseat.PrSeatActivity"/>
+        <activity android:name=".shop.ShopActivity"/>
     </application>
 
 </manifest>
