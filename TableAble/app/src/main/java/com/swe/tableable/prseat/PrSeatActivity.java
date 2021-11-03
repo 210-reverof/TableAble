@@ -20,6 +20,10 @@ public class PrSeatActivity  extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prdt);
+
+        //Http 통신하기
+
+
         init();
     }
 
