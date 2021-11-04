@@ -9,7 +9,7 @@
     android:layout_margin="6dp">
 
     <TextView
-        android:id="@+id/prdt_place_name"
+        android:id="@+id/afterdensity_place_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
@@ -61,8 +61,8 @@
         android:layout_marginEnd="4dp"
         android:text="10분 후"
         android:textColor="#93532B"
-        app:layout_constraintBottom_toBottomOf="@+id/prdt_place_name"
+        app:layout_constraintBottom_toBottomOf="@+id/afterdensity_place_name"
         app:layout_constraintEnd_toStartOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="@+id/prdt_place_name" />
+        app:layout_constraintTop_toTopOf="@+id/afterdensity_place_name" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

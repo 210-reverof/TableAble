@@ -21,6 +21,7 @@
         </activity>
         <activity android:name=".density.DensityActivity"/>
         <activity android:name=".prseat.PrSeatActivity"/>
+        <activity android:name=".afterdensity.AfterDensityActivity"/>
         <activity android:name=".shop.ShopActivity"/>
     </application>
 

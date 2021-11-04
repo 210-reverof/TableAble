@@ -2,13 +2,13 @@ package com.swe.tableable.prseat;
 
 public class PrSeat {
     private String placeName;
-    private String pr_time;
-    private int pr_seat;
+    private String prTime;
+    private int prSeat;
 
-    public PrSeat(String placeName, String pr_time, int pr_seat) {
+    public PrSeat(String placeName, String pr_time, int prSeat) {
         this.placeName = placeName;
-        this.pr_time = pr_time;
-        this.pr_seat = pr_seat;
+        this.prTime = pr_time;
+        this.prSeat = prSeat;
     }
 
     public String getPlaceName() {
@@ -19,19 +19,19 @@ public class PrSeat {
         this.placeName = placeName;
     }
 
-    public String getPr_time() {
-        return pr_time;
+    public String getPrTime() {
+        return prTime;
     }
 
-    public void setPr_time(String pr_time) {
-        this.pr_time = pr_time;
+    public void setPrTime(String prTime) {
+        this.prTime = prTime;
     }
 
-    public int getPr_seat() {
-        return pr_seat;
+    public int getPrSeat() {
+        return prSeat;
     }
 
-    public void setPr_seat(int pr_seat) {
-        this.pr_seat = pr_seat;
+    public void setPrSeat(int prSeat) {
+        this.prSeat = prSeat;
     }
 }

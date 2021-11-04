@@ -1,11 +1,9 @@
 package com.swe.tableable.prseat;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -36,8 +34,8 @@ public class PrSeatRecyclerAdapter extends RecyclerView.Adapter<PrSeatRecyclerAd
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         //텍스트 및 이미지 설정
         holder.placeName.setText(list.get(position).getPlaceName());
-        holder.prSeat.setText(String.valueOf(list.get(position).getPr_seat()));
-        holder.prTime.setText(list.get(position).getPr_time());
+        holder.prSeat.setText(String.valueOf(list.get(position).getPrSeat()));
+        holder.prTime.setText(list.get(position).getPrTime());
 
     }
 
@@ -53,7 +51,7 @@ public class PrSeatRecyclerAdapter extends RecyclerView.Adapter<PrSeatRecyclerAd
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            placeName = itemView.findViewById(R.id.prdt_place_name);
+            placeName = itemView.findViewById(R.id.afterdensity_place_name);
             prSeat = itemView.findViewById(R.id.pr_seat);
             prTime = itemView.findViewById(R.id.pr_time);
         }
