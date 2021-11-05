@@ -22,6 +22,7 @@ import android.widget.TextView;
 import com.swe.tableable.afterdensity.AfterDensity;
 import com.swe.tableable.afterdensity.AfterDensityActivity;
 import com.swe.tableable.density.DensityActivity;
+import com.swe.tableable.map.MapActivity;
 import com.swe.tableable.prseat.PrSeatActivity;
 import com.swe.tableable.shop.ShopActivity;
 
@@ -66,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ShopActivity.class);
+                Intent intent = new Intent(getApplicationContext(), MapActivity.class);
                 startActivity(intent);
             }
         });
@@ -171,6 +172,9 @@ public class MainActivity extends AppCompatActivity {
                         conn.setDoOutput(true);
 
                         int resCode = conn.getResponseCode();
+
+                        Log.d("123",String.valueOf(resCode));
+
                         if (resCode == HttpURLConnection.HTTP_OK) {
                             BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
                             String line = null;
@@ -178,6 +182,7 @@ public class MainActivity extends AppCompatActivity {
                                 line = reader.readLine();
                                 if (line == null)
                                     break;
+                                Log.d("test",line);
                                 data[0] += line;
                             }
                             reader.close();
@@ -197,7 +202,6 @@ public class MainActivity extends AppCompatActivity {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
         Log.v("rrrrrr", data[0]);
         return data[0];
     }
