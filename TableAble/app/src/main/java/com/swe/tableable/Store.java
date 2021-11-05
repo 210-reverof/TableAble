@@ -3,6 +3,9 @@ package com.swe.tableable;
 public class Store {
     private int storeNum;
     private String storeName;
+    private Double latitude;
+    private Double longitude;
+    private String address;
     private int table1Cnt;
     private int table1Sit;
     private int table2Cnt;
@@ -11,9 +14,12 @@ public class Store {
     private int table4Sit;
     private double sitAvg;
 
-    public Store(int storeNum, String storeName, int table1Cnt, int table1Sit, int table2Cnt, int table2Sit, int table4Cnt, int table4Sit, double sitAvg) {
+    public Store(int storeNum, String storeName, Double latitude, Double longitude, String address, int table1Cnt, int table1Sit, int table2Cnt, int table2Sit, int table4Cnt, int table4Sit, double sitAvg) {
         this.storeNum = storeNum;
         this.storeName = storeName;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.address = address;
         this.table1Cnt = table1Cnt;
         this.table1Sit = table1Sit;
         this.table2Cnt = table2Cnt;
@@ -37,6 +43,30 @@ public class Store {
 
     public void setStoreName(String storeName) {
         this.storeName = storeName;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public int getTable1Cnt() {

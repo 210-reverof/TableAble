@@ -1,16 +1,26 @@
 package com.swe.tableable.density;
 
 public class Density {
+    private int placeNum;
     private String placeName;
     private double latitude;
     private double longitude;
-    private int density;
+    private double density;
 
-    public Density(String placeName, double latitude, double longitude, int density) {
+    public Density(int placeNum, String placeName, double latitude, double longitude, double density) {
+        this.placeNum = placeNum;
         this.placeName = placeName;
         this.latitude = latitude;
         this.longitude = longitude;
         this.density = density;
+    }
+
+    public int getPlaceNum() {
+        return placeNum;
+    }
+
+    public void setPlaceNum(int placeNum) {
+        this.placeNum = placeNum;
     }
 
     public String getPlaceName() {
@@ -37,11 +47,11 @@ public class Density {
         this.longitude = longitude;
     }
 
-    public int getDensity() {
+    public double getDensity() {
         return density;
     }
 
-    public void setDensity(int density) {
+    public void setDensity(double density) {
         this.density = density;
     }
 }

@@ -1,9 +1,16 @@
 package com.swe.tableable;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 
 import android.util.Log;
@@ -34,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private View drawerView;
     private Button b1, b2, b3, b4;
-    private TextView logTv;
+    private TextView logTv; // 디버깅용 텍뷰
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +51,7 @@ public class MainActivity extends AppCompatActivity {
         drawerView = (View) findViewById(R.id.drawer);      // 드로어를 추가
 
         logTv = findViewById(R.id.tv1);     //로그를 위한 임시 텍스트뷰 (삭제 요망)
-        //logTv.setText(getData());
-        toJSONArray();  // 메서드 내부적으로 예외 처리 예쩡
-
+        ArrayList<Store> stores = toStoreArray();
 
         b1 = findViewById(R.id.temp_btn1);
         b1.setOnClickListener(new View.OnClickListener() {
@@ -83,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
 
         Button btn_open = findViewById(R.id.menu_btn);      //왼쪽 상단 메뉴 버튼
         btn_open.setOnClickListener(new View.OnClickListener() {
@@ -147,6 +151,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 
     // php 문서에서 JSON을 String으로 받아오기
@@ -193,31 +198,40 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        Log.v("rrrrrr",data[0]);
+        Log.v("rrrrrr", data[0]);
         return data[0];
     }
 
-    // <Store> 배열로 반환하기
-    //public ArrayList<Store> toJSONArray () throws JSONException {
-    public void toJSONArray() throws JSONException {
-        String data = getData();
-        data = data.substring(4);
+    // <Store> 배열로 반환하는 함수
+    public ArrayList<Store> toStoreArray() {
+        String data = getData();        // 웹상에서 데이터 가져오기
+        data = data.substring(4);       // 앞 네글자 자르기
         JSONArray jsonArray = null;
-        try {
-            jsonArray = new JSONArray(data);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
 
         JSONObject jsonObject = null;
+        ArrayList<Store> stores = new ArrayList<Store>();
+
         try {
-            jsonObject = jsonArray.getJSONObject(0);
+            jsonArray = new JSONArray(data);
+            for (int i = 0; i < jsonArray.length(); i++) {
+                jsonObject = jsonArray.getJSONObject(i);
+                stores.add(new Store(Integer.parseInt(String.valueOf(jsonObject.get("STORENUM"))), String.valueOf(jsonObject.get("STORENAME")), Double.parseDouble(String.valueOf(jsonObject.get("LATITUDE"))),
+                        Double.parseDouble(String.valueOf(jsonObject.get("SITAVG"))), String.valueOf(jsonObject.get("STORENAME")), Integer.parseInt(String.valueOf(jsonObject.get("TABLE1CNT"))),
+                        Integer.parseInt(String.valueOf(jsonObject.get("TABLE1SIT"))), Integer.parseInt(String.valueOf(jsonObject.get("TABLE2CNT"))), Integer.parseInt(String.valueOf(jsonObject.get("TABLE2SIT"))),
+                        Integer.parseInt(String.valueOf(jsonObject.get("TABLE4CNT"))), Integer.parseInt(String.valueOf(jsonObject.get("TABLE4SIT"))), Double.parseDouble(String.valueOf(jsonObject.get("SITAVG")))));
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        String.valueOf(jsonObject.get("name"));
+        String str = "";
+        for (Store i : stores) {
+            str += i.getStoreName();
+            str += " ";
+        }
 
-
+       //logTv.setText(str);
+        return stores;
     }
+
 }

@@ -2,6 +2,7 @@ package com.swe.tableable.density;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.location.Location;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,11 @@ import com.swe.tableable.R;
 
 import java.util.List;
 
+import static java.lang.Math.asin;
+import static java.lang.Math.cos;
+import static java.lang.Math.sin;
+import static java.lang.Math.sqrt;
+
 
 public class DensityRecyclerAdapter extends RecyclerView.Adapter<DensityRecyclerAdapter.ViewHolder> {
 
@@ -23,6 +29,8 @@ public class DensityRecyclerAdapter extends RecyclerView.Adapter<DensityRecycler
     public DensityRecyclerAdapter(List<Density>getList){
         list = getList;
     }
+    private double currentLatitude = 36.76907;
+    private double currentLongitude = 126.93482;
 
     @NonNull
     @Override
@@ -38,7 +46,7 @@ public class DensityRecyclerAdapter extends RecyclerView.Adapter<DensityRecycler
         //텍스트 및 이미지 설정
         holder.placeName.setText(list.get(position).getPlaceName());
 
-        int getDensity =  list.get(position).getDensity();
+        double getDensity =  list.get(position).getDensity();
 
         Drawable drawable = holder.densityImg.getResources().getDrawable(R.drawable.density_img_0);
 
@@ -68,7 +76,8 @@ public class DensityRecyclerAdapter extends RecyclerView.Adapter<DensityRecycler
             holder.densityImg.setImageDrawable(drawable);
         }
         // 현재 위치, 가게 위도경도로 직선 거리 구해서 홀더에 넣기
-        //holder.distance.setText(String.valueOf(list.get(position).getLatitude()));
+        int distance = getDistance(currentLatitude, currentLongitude, (list.get(position).getLatitude()), (list.get(position).getLongitude()));
+        holder.distance.setText(String.valueOf(distance)+"m");
     }
 
     @Override
@@ -89,5 +98,16 @@ public class DensityRecyclerAdapter extends RecyclerView.Adapter<DensityRecycler
             density = itemView.findViewById(R.id.density);
             densityImg = itemView.findViewById(R.id.density_img);
         }
+    }
+
+    public int getDistance(double lat1, double lon1, double lat2, double lon2) {
+        Location location1 = new Location("a");
+        location1.setLongitude(lon1);
+        location1.setLatitude(lat1);
+        Location location2 = new Location("b");
+        location2.setLongitude(lon2);
+        location2.setLatitude(lat2);
+        double distance = location1.distanceTo(location2);
+        return (int)distance;
     }
 }
