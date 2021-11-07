@@ -1,16 +1,24 @@
 package com.swe.tableable.map;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.swe.tableable.MainActivity;
 import com.swe.tableable.R;
 import com.swe.tableable.Store;
+import com.swe.tableable.afterdensity.AfterDensityActivity;
+import com.swe.tableable.density.DensityActivity;
+import com.swe.tableable.prseat.PrSeatActivity;
 import com.swe.tableable.shop.ShopActivity;
 
 import net.daum.mf.map.api.MapPOIItem;
@@ -38,6 +46,8 @@ import java.util.ArrayList;
 
 public class MapActivity extends AppCompatActivity implements MapView.CurrentLocationEventListener, MapView.POIItemEventListener {
 
+    private DrawerLayout drawerLayout;
+    private View drawerView;
     MapView mapView;
     RelativeLayout mapViewContainer;
     private ArrayList<Store> stores;
@@ -47,20 +57,89 @@ public class MapActivity extends AppCompatActivity implements MapView.CurrentLoc
     protected void onCreate(@Nullable Bundle saveInstanceState) {
         super.onCreate(saveInstanceState);
         setContentView(R.layout.activity_map);
+
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);     // 메뉴 드로어 레이아웃 추가
+        drawerView = (View) findViewById(R.id.drawer);      // 드로어를 추가
+
         mapViewContainer = findViewById(R.id.map);
         mapView = new MapView(this);
 
-        stores = toStoreArray();
-        makeMarker(stores);
+
 
         mapView.setCurrentLocationEventListener(this);
         mapViewContainer.addView(mapView);
-        mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeading);
+        mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode.TrackingModeOnWithHeading);
+
+        stores = toStoreArray();
+        makeMarker(stores);
+        //mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode.TrackingModeOff);  // 트래킹모드 해제 시점은,,?
+
+        Button btn_open = findViewById(R.id.menu_btn);      //왼쪽 상단 메뉴 버튼
+        btn_open.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.openDrawer(drawerView);
+            }
+        });
+
+        drawerView.setOnTouchListener(new View.OnTouchListener() {      // 눌렀을 때 메뉴 나오기
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return true;
+            }
+        });  // 메뉴바 열기
+
+        Button btn_close = findViewById(R.id.btn_close);        // 메뉴바 닫기
+        btn_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.closeDrawers();
+            }
+        });
+
+        Button first_btn = findViewById(R.id.first_btn);            // 특정 메뉴로 이동
+        first_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.closeDrawers();
+                Intent intent = new Intent(MapActivity.this, DensityActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button second_btn = findViewById(R.id.second_btn);
+        second_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.closeDrawers();
+                Intent intent = new Intent(MapActivity.this, MapActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button third_btn = findViewById(R.id.third_btn);
+        third_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.closeDrawers();
+                Intent intent = new Intent(MapActivity.this, PrSeatActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button fourth_btn = findViewById(R.id.fourth_btn);
+        fourth_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.closeDrawers();
+                Intent intent = new Intent(MapActivity.this, AfterDensityActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
     public void onCurrentLocationUpdate(MapView mapView, MapPoint mapPoint, float v) {
-
     }
 
     @Override
@@ -183,6 +262,8 @@ public class MapActivity extends AppCompatActivity implements MapView.CurrentLoc
             mapPOIItem.setCustomImageAutoscale(false);
             mapView.addPOIItem(mapPOIItem);
         }
+
+        //mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode.TrackingModeOff);  // 트래킹모드 해제 시점은,,?
     }
 
     @Override

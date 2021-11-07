@@ -1,5 +1,6 @@
 package com.swe.tableable.afterdensity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.swe.tableable.R;
+import com.swe.tableable.map.MapActivity;
 import com.swe.tableable.prseat.PrSeatActivity;
 
 import java.util.ArrayList;
@@ -72,7 +74,7 @@ public class AfterDensityActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 drawerLayout.closeDrawers();
-                Intent intent = new Intent(AfterDensityActivity.this, PrSeatActivity.class);
+                Intent intent = new Intent(AfterDensityActivity.this, MapActivity.class);
                 startActivity(intent);
             }
         });

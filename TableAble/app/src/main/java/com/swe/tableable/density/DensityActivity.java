@@ -1,5 +1,6 @@
 package com.swe.tableable.density;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +17,7 @@ import com.swe.tableable.MainActivity;
 import com.swe.tableable.R;
 import com.swe.tableable.Store;
 import com.swe.tableable.afterdensity.AfterDensityActivity;
+import com.swe.tableable.map.MapActivity;
 import com.swe.tableable.prseat.PrSeatActivity;
 import com.swe.tableable.shop.ShopActivity;
 
@@ -94,7 +96,7 @@ public class DensityActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 drawerLayout.closeDrawers();
-                Intent intent = new Intent(DensityActivity.this, PrSeatActivity.class);
+                Intent intent = new Intent(DensityActivity.this, MapActivity.class);
                 startActivity(intent);
             }
         });

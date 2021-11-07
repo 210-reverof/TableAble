@@ -1,5 +1,6 @@
 package com.swe.tableable.prseat;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -15,6 +16,7 @@ import com.swe.tableable.R;
 import com.swe.tableable.afterdensity.AfterDensity;
 import com.swe.tableable.afterdensity.AfterDensityActivity;
 import com.swe.tableable.density.DensityActivity;
+import com.swe.tableable.map.MapActivity;
 import com.swe.tableable.shop.ShopActivity;
 
 import java.util.ArrayList;
@@ -76,7 +78,7 @@ public class PrSeatActivity  extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 drawerLayout.closeDrawers();
-                Intent intent = new Intent(PrSeatActivity.this, PrSeatActivity.class);
+                Intent intent = new Intent(PrSeatActivity.this, MapActivity.class);
                 startActivity(intent);
             }
         });

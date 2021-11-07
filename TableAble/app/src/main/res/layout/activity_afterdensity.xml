@@ -61,7 +61,7 @@
             android:layout_width="wrap_content"
             android:layout_height="80dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/pplrty_temp_img"
+            android:src="@drawable/lable3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
