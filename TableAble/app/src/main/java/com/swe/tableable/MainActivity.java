@@ -20,6 +20,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.gun0912.tedpermission.PermissionListener;
+import com.gun0912.tedpermission.TedPermission;
 import com.swe.tableable.afterdensity.AfterDensity;
 import com.swe.tableable.afterdensity.AfterDensityActivity;
 import com.swe.tableable.density.DensityActivity;
@@ -44,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private View drawerView;
     private Button b1, b2, b3, b4;
     private TextView logTv; // 디버깅용 텍뷰
+    private PermissionListener permissionListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -154,6 +157,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        permissionListener = new PermissionListener() {
+            @Override
+            public void onPermissionGranted() {
+                //권한 허가됨
+            }
+
+            @Override
+            public void onPermissionDenied(ArrayList<String> deniedPermissions) {
+                //권한 거부됨
+            }
+        };
+        checkPermission();
     }
 
     // php 문서에서 JSON을 String으로 받아오기
@@ -239,4 +254,12 @@ public class MainActivity extends AppCompatActivity {
         return stores;
     }
 
+    private void checkPermission(){
+        TedPermission.with(getApplicationContext())
+                .setPermissionListener(permissionListener)
+                .setRationaleMessage("지도를 사용하 위해서는 위치 권한이 요구됩니다.")
+                .setDeniedMessage("위치 권한 거부 시, 서비스를 사용할 수 업습니다.")
+                .setPermissions(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION)
+                .check();
+    }
 }

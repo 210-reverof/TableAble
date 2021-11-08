@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.swe.tableable.MainActivity;
 import com.swe.tableable.R;
 import com.swe.tableable.Store;
@@ -51,6 +52,7 @@ public class MapActivity extends AppCompatActivity implements MapView.CurrentLoc
     MapView mapView;
     RelativeLayout mapViewContainer;
     private ArrayList<Store> stores;
+    private FloatingActionButton setCurrentBtn;
 
 
     @Override
@@ -58,13 +60,12 @@ public class MapActivity extends AppCompatActivity implements MapView.CurrentLoc
         super.onCreate(saveInstanceState);
         setContentView(R.layout.activity_map);
 
+        setCurrentBtn = findViewById(R.id.map_set_current_point);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);     // 메뉴 드로어 레이아웃 추가
         drawerView = (View) findViewById(R.id.drawer);      // 드로어를 추가
 
         mapViewContainer = findViewById(R.id.map);
         mapView = new MapView(this);
-
-
 
         mapView.setCurrentLocationEventListener(this);
         mapViewContainer.addView(mapView);
@@ -73,6 +74,13 @@ public class MapActivity extends AppCompatActivity implements MapView.CurrentLoc
         stores = toStoreArray();
         makeMarker(stores);
         //mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode.TrackingModeOff);  // 트래킹모드 해제 시점은,,?
+
+        setCurrentBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode.TrackingModeOnWithHeading);
+            }
+        });
 
         Button btn_open = findViewById(R.id.menu_btn);      //왼쪽 상단 메뉴 버튼
         btn_open.setOnClickListener(new View.OnClickListener() {
@@ -138,8 +146,15 @@ public class MapActivity extends AppCompatActivity implements MapView.CurrentLoc
         });
     }
 
+    //플로팅 버튼 이벤트
+    //
+
     @Override
     public void onCurrentLocationUpdate(MapView mapView, MapPoint mapPoint, float v) {
+        mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode.TrackingModeOff);
+        MapPoint.GeoCoordinate mapGeo = mapPoint.getMapPointGeoCoord();
+        MapPoint currentPoint = MapPoint.mapPointWithGeoCoord(mapGeo.latitude, mapGeo.longitude);
+        mapView.setMapCenterPoint(currentPoint, true);
     }
 
     @Override

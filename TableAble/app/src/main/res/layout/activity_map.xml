@@ -45,13 +45,13 @@
             app:layout_constraintTop_toBottomOf="@+id/title">
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/floatingActionButton"
+                android:id="@+id/map_set_current_point"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginEnd="50dp"
-                android:layout_marginBottom="60dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginBottom="50dp"
                 android:clickable="true"
                 tools:src="@tools:sample/avatars" />
         </RelativeLayout>
