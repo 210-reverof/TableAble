@@ -12,6 +12,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.swe.tableable.R;
 import com.swe.tableable.map.MapActivity;
 import com.swe.tableable.prseat.PrSeatActivity;
@@ -33,6 +34,16 @@ public class AfterDensityActivity extends AppCompatActivity {
         setContentView(R.layout.activity_afterdensity);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);     // 메뉴 드로어 레이아웃 추가
         drawerView = (View) findViewById(R.id.drawer);      // 드로어를 추가
+
+        FloatingActionButton btn_refresh = findViewById(R.id.afterdensity_reload_btn) ;
+        btn_refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getList.clear();
+                //stores = toStoreArray();
+                init();
+            }
+        });
 
         init();
 

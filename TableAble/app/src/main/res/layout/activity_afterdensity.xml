@@ -93,6 +93,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title2" />
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/afterdensity_reload_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="30dp"
+            android:clickable="true"
+            app:backgroundTint="#ffffff"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@android:drawable/stat_notify_sync" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <include layout="@layout/activity_drawer" />

@@ -1,6 +1,7 @@
 package com.swe.tableable.afterdensity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
@@ -13,7 +14,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.swe.tableable.R;
+import com.swe.tableable.Store;
+import com.swe.tableable.density.Density;
+import com.swe.tableable.shop.ShopActivity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -47,6 +52,7 @@ public class AfterDensityRecyclerAdapter extends RecyclerView.Adapter<AfterDensi
         holder.nextTime2.setText(String.valueOf(list.get(position).getNextTime2()+"시"));
         holder.nextDensity2.setText(toStateString(list.get(position).getNextDensity2()));
         holder.nextDensity2.setTextColor(toStateColor(list.get(position).getNextDensity2()));
+
     }
 
     @Override

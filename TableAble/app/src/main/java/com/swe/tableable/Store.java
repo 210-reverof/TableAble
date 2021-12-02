@@ -1,6 +1,8 @@
 package com.swe.tableable;
 
-public class Store {
+import java.io.Serializable;
+
+public class Store implements Serializable {
     private int storeNum;
     private String storeName;
     private Double latitude;

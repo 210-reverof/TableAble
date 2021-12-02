@@ -60,7 +60,7 @@
         app:layout_constraintTop_toBottomOf="@+id/title" />
 
     <TextView
-        android:id="@+id/shop_adress"
+        android:id="@+id/shop_address"
         android:layout_width="400dp"
         android:layout_height="20dp"
         android:gravity="center"
@@ -84,25 +84,25 @@
         app:layout_constraintTop_toBottomOf="@+id/title2" />
 
     <TextView
-        android:id="@+id/text1_3"
+        android:id="@+id/now_density"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="47dp"
-        android:layout_marginEnd="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="30dp"
         android:text="여유"
         android:textColor="@color/black"
-        android:textSize="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/board" />
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text1_1" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/densityImg"
         android:layout_width="114dp"
         android:layout_height="41dp"
-        android:layout_marginTop="4dp"
         android:layout_marginEnd="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/now_density"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text1_3"
+        app:layout_constraintTop_toTopOf="@+id/now_density"
         app:srcCompat="@drawable/density_img_0" />
 
     <TextView
@@ -110,21 +110,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="115dp"
+        android:layout_marginTop="48dp"
         android:text="이후 여석 예측"
         android:textColor="#4A7D30"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text1_1" />
+        app:layout_constraintTop_toBottomOf="@+id/now_density" />
 
     <TextView
         android:id="@+id/text2_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="30dp"
         android:text="10분 후"
         android:textColor="@color/black"
-        android:textSize="30dp"
+        android:textSize="24dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text2_1" />
 
@@ -132,52 +132,52 @@
         android:id="@+id/text2_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="229dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="4dp"
         android:text="여석"
         android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/text2_4"
-        app:layout_constraintTop_toTopOf="@+id/board" />
+        app:layout_constraintTop_toBottomOf="@+id/text2_1" />
 
     <TextView
         android:id="@+id/text2_4"
         android:layout_width="wrap_content"
         android:layout_height="19dp"
-        android:layout_marginTop="229dp"
         android:layout_marginEnd="4dp"
         android:text="n개"
         android:textColor="#8CD370"
+        app:layout_constraintBottom_toBottomOf="@+id/text2_3"
         app:layout_constraintEnd_toStartOf="@+id/text2_5"
-        app:layout_constraintTop_toTopOf="@+id/board" />
+        app:layout_constraintTop_toTopOf="@+id/text2_3" />
 
     <TextView
         android:id="@+id/text2_5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="229dp"
         android:layout_marginEnd="50dp"
         android:text="예상"
         android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/text2_4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/board" />
+        app:layout_constraintTop_toTopOf="@+id/text2_4" />
 
     <TextView
         android:id="@+id/text3_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="115dp"
+        android:layout_marginTop="48dp"
         android:text="이후 복잡도 예측"
         android:textColor="#4A7D30"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text2_1" />
+        app:layout_constraintTop_toBottomOf="@+id/text2_2" />
 
     <TextView
         android:id="@+id/text3_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="22dp"
         android:text="10시"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"

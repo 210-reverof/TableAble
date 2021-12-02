@@ -13,6 +13,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.swe.tableable.MainActivity;
 import com.swe.tableable.R;
 import com.swe.tableable.Store;
@@ -53,7 +54,7 @@ public class DensityActivity extends AppCompatActivity {
         setContentView(R.layout.activity_density);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);     // 메뉴 드로어 레이아웃 추가
         drawerView = (View) findViewById(R.id.drawer);      // 드로어를 추가
-        
+
         stores = toStoreArray();   // 받아온 데이터로 배열 만들기
 
         init();
@@ -86,7 +87,7 @@ public class DensityActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 drawerLayout.closeDrawers();
-                Intent intent = new Intent(DensityActivity.this,DensityActivity.class);
+                Intent intent = new Intent(DensityActivity.this, DensityActivity.class);
                 startActivity(intent);
             }
         });
@@ -120,12 +121,22 @@ public class DensityActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        FloatingActionButton btn_refresh = findViewById(R.id.density_reload_btn);
+        btn_refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getList.clear();
+                stores = toStoreArray();
+                init();
+            }
+        });
     }
 
-    private void init(){
+    private void init() {
         insertList();
         recyclerView = findViewById(R.id.density_recycler_view);
-        densityRecyclerAdapter = new DensityRecyclerAdapter(getList);
+        densityRecyclerAdapter = new DensityRecyclerAdapter(getList, stores);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(densityRecyclerAdapter);
     }
@@ -133,12 +144,10 @@ public class DensityActivity extends AppCompatActivity {
     private void insertList() {
         double density;
         for (Store i : stores) {
-            density = (double)(i.getTable1Sit()+i.getTable2Sit()+i.getTable4Sit()) / (double) (i.getTable1Cnt()+i.getTable2Cnt()+i.getTable4Cnt()) * 100;
-            Log.v("here", i.getLongitude()+"");
-            getList.add(new Density(i.getStoreNum(),i.getStoreName(), i.getLatitude(), i.getLongitude(), density));
+            density = (double) (i.getTable1Sit() + i.getTable2Sit() + i.getTable4Sit()) / (double) (i.getTable1Cnt() + i.getTable2Cnt() + i.getTable4Cnt()) * 100;
+            Log.v("here", i.getLongitude() + "");
+            getList.add(new Density(i.getStoreNum(), i.getStoreName(), i.getLatitude(), i.getLongitude(), density));
         }
-
-        // getList.add(new Density(1,"신전떡볶이",30.0, 60.0, 40.0));
     }
 
     // php 문서에서 JSON을 String으로 받아오기
@@ -185,14 +194,13 @@ public class DensityActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        Log.v("rrrrrr", data[0]);
         return data[0];
     }
 
     // <Store> 배열로 반환하는 함수
     public ArrayList<Store> toStoreArray() {
         String data = getData();        // 웹상에서 데이터 가져오기
-        Log.v("ttttt",data);
+        Log.v("ttttt", data);
         data = data.substring(4);       // 앞 네글자 자르기
         JSONArray jsonArray = null;
 
@@ -220,5 +228,4 @@ public class DensityActivity extends AppCompatActivity {
 
         return stores;
     }
-
 }

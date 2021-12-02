@@ -18,6 +18,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.gun0912.tedpermission.PermissionListener;
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
     private View drawerView;
-    private Button b1, b2, b3, b4;
+    private ImageButton b1, b2, b3, b4;
     private TextView logTv; // 디버깅용 텍뷰
     private PermissionListener permissionListener;
 

@@ -33,6 +33,7 @@
         <activity android:name=".afterdensity.AfterDensityActivity" />
         <activity android:name=".shop.ShopActivity" />
         <activity android:name=".map.MapActivity"/>
+        <activity android:name=".shop.ShopGraphActivity"/>
     </application>
 
 </manifest>

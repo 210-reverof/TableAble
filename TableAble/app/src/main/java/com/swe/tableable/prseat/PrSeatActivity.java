@@ -12,6 +12,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.swe.tableable.R;
 import com.swe.tableable.afterdensity.AfterDensity;
 import com.swe.tableable.afterdensity.AfterDensityActivity;
@@ -102,6 +103,16 @@ public class PrSeatActivity  extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        FloatingActionButton btn_refresh = findViewById(R.id.prseat_reload_btn);
+        btn_refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getList.clear();
+                //stores = toStoreArray();
+                init();
+            }
+        });
     }
 
     private void init(){
@@ -114,11 +125,7 @@ public class PrSeatActivity  extends AppCompatActivity {
 
     private void insertList(){
         getList.add(new PrSeat("교촌", "10분", 3));
-        getList.add(new PrSeat("빨봉", "30분", 30));
+        getList.add(new PrSeat("빨봉", "15분", 30));
         getList.add(new PrSeat("버베이드", "10분", 4));
-    }
-
-    private void insertListFromData(){
-
     }
 }

@@ -1,6 +1,8 @@
 package com.swe.tableable.density;
 
-public class Density {
+import java.io.Serializable;
+
+public class Density implements Serializable {
     private int placeNum;
     private String placeName;
     private double latitude;

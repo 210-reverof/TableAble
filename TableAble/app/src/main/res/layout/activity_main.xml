@@ -53,48 +53,48 @@
         </com.google.android.material.appbar.AppBarLayout>
 
 
-
-        <Button
+        <ImageButton
+            android:background="@drawable/main_btn1"
             android:id="@+id/temp_btn1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="80dp"
-            android:layout_marginTop="144dp"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="120dp"
             android:text="복잡도 list"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
 
-        <Button
+        <ImageButton
+            android:background="@drawable/main_btn2"
             android:id="@+id/temp_btn2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="144dp"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="120dp"
+            android:layout_marginEnd="60dp"
             android:text="지도"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.529"
-            app:layout_constraintStart_toEndOf="@+id/temp_btn1"
             app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
 
-        <Button
+        <ImageButton
+            android:background="@drawable/main_btn3"
             android:id="@+id/temp_btn3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="80dp"
-            android:layout_marginTop="300dp"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="40dp"
             android:text="여석예측"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/temp_btn1" />
 
-        <Button
+        <ImageButton
+            android:background="@drawable/main_btn4"
             android:id="@+id/temp_btn4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="56dp"
-            android:layout_marginTop="108dp"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="60dp"
             android:text="이후의 복잡도"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.09"
-            app:layout_constraintStart_toEndOf="@+id/temp_btn3"
             app:layout_constraintTop_toBottomOf="@+id/temp_btn2" />
 
         <TextView
@@ -102,7 +102,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="92dp"
-            android:text="TextView"
+            android:text=" "
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
