@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.swe.tableable.R;
+import com.swe.tableable.density.DensityActivity;
 import com.swe.tableable.map.MapActivity;
 import com.swe.tableable.prseat.PrSeatActivity;
 
@@ -75,7 +76,7 @@ public class AfterDensityActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 drawerLayout.closeDrawers();
-                Intent intent = new Intent(AfterDensityActivity.this, AfterDensityActivity.class);
+                Intent intent = new Intent(AfterDensityActivity.this, DensityActivity.class);
                 startActivity(intent);
             }
         });
@@ -121,8 +122,8 @@ public class AfterDensityActivity extends AppCompatActivity {
 
     private void insertList(){
         getList.add(new AfterDensity(1,"신전떡볶이",30.0, 10,60.0, 20, 35.0));
-        getList.add(new AfterDensity(2,"엽떡!",80.0, 10,100.0,20, 35.0));
-        getList.add(new AfterDensity(3,"빨봉!",20.0, 10,30.0,20, 35.0));
+        getList.add(new AfterDensity(2,"엽기떡볶이",80.0, 10,100.0,20, 35.0));
+        getList.add(new AfterDensity(3,"빨봉분식",20.0, 10,30.0,20, 35.0));
         getList.add(new AfterDensity(4,"꼴두바우",30.0, 10, 0.0, 20, 35.0));
         getList.add(new AfterDensity(5,"궁중화로",10.0, 10,0.0,20, 35.0 ));
         getList.add(new AfterDensity(6,"진룽 마라탕",50.0, 10,0.0,20, 35.0));
